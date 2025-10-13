@@ -1,0 +1,59 @@
+# Comprehensive Benchmark Evaluation Configuration
+# This configuration runs evaluation on all supported datasets
+
+# Model Configuration
+model:
+  path: "/path/to/your/model"
+  backend: "vllm"
+  use_vllm: true
+  
+  # vLLM specific settings
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.9
+  max_model_len: 32768
+  trust_remote_code: true
+  
+  # Generation settings
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 2048
+  system_prompt: "You are a helpful assistant that solves mathematical problems step by step. Please think carefully and provide detailed reasoning."
+
+# Dataset Configuration
+datasets:
+  data_dir: "../data"
+  datasets:
+    - "math"
+    - "gsm8k"
+    - "aime"
+    - "aime25"
+    - "olympiadbench"
+    - "minerva"
+    - "gpqa"
+    - "mmlu-pro"
+  split: "test"
+  max_samples: 500  # Full evaluation
+
+# Evaluator Configuration
+evaluator:
+  type: "xverify"
+  model_path: "/path/to/your/model"
+  model_name: "xVerify-0.5B-I"
+  use_vllm: true
+  process_num: 8  # More parallel processes for faster evaluation
+  temperature: 0.1
+  max_tokens: 2048
+  gpu_memory_utilization: 0.8  # Main model is released before xVerify initialization
+
+# Output Configuration
+output:
+  results_dir: "./comprehensive_results"
+  save_individual_results: true
+  save_summary: true
+
+# Execution Configuration
+execution:
+  batch_size: 32  # Larger batch size for efficiency
+  eval_batch_size: 64
+  num_workers: 8
+  seed: 42

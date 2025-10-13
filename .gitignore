@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Results and outputs
+results/
+logs/
+*.log
+outputs/
+checkpoints/
+wandb/
+mlruns/
+
+# SLURM
+sbatch_jobs/
+sbatch_outputs/
+slurm-*.out
+*.sbatch
+
+# Personal scripts and configurations
+personal_scripts/
+my_config*.yaml
+
+# xVerify (bundled, but may contain local changes)
+src/xVerify/__pycache__/
+src/xVerify/**/__pycache__/
+
+
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Model cache
+models/
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Environment
+.env
+.env.local
+

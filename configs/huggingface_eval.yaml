@@ -1,0 +1,51 @@
+# HuggingFace Backend Configuration
+# Configuration for using HuggingFace Transformers instead of vLLM
+
+# Model Configuration
+model:
+  path: "/path/to/your/model"
+  backend: "huggingface"
+  use_vllm: false
+  
+  # HuggingFace specific settings
+  device_map: "auto"
+  torch_dtype: "bfloat16"
+  trust_remote_code: true
+  
+  # Generation settings
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 2048
+  system_prompt: "You are a helpful assistant that solves mathematical problems step by step."
+
+# Dataset Configuration
+datasets:
+  data_dir: "../data"
+  datasets:
+    - "math"
+    - "gsm8k"
+  split: "test"
+  max_samples: 50  # Smaller batch for HF backend
+
+# Evaluator Configuration
+evaluator:
+  type: "xverify"
+  model_path: "/path/to/your/model"
+  model_name: "xVerify-0.5B-I"
+  use_vllm: false  # Use HF backend for evaluation too
+  process_num: 2   # Fewer processes for HF backend
+  temperature: 0.1
+  max_tokens: 2048
+
+# Output Configuration
+output:
+  results_dir: "./hf_results"
+  save_individual_results: true
+  save_summary: true
+
+# Execution Configuration
+execution:
+  batch_size: 4   # Smaller batch size for HF backend
+  eval_batch_size: 8
+  num_workers: 2
+  seed: 42

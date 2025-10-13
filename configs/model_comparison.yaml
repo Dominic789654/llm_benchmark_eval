@@ -1,0 +1,54 @@
+# Model Comparison Configuration
+# Base configuration for comparing multiple models
+
+# Model Configuration (will be overridden for each model)
+model:
+  path: "PLACEHOLDER"  # Will be replaced during comparison
+  backend: "vllm"
+  use_vllm: true
+  
+  # vLLM specific settings
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.8  # Conservative for multiple models
+  max_model_len: 32768
+  trust_remote_code: true
+  
+  # Generation settings
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 2048
+  system_prompt: "You are a helpful assistant that solves mathematical problems step by step."
+
+# Dataset Configuration
+datasets:
+  data_dir: "../data"
+  datasets:
+    - "math"
+    - "gsm8k"
+    - "aime"
+    - "gpqa"
+  split: "test"
+  max_samples: 200  # Moderate sample size for comparison
+
+# Evaluator Configuration
+evaluator:
+  type: "xverify"
+  model_path: "/path/to/your/model"
+  model_name: "xVerify-0.5B-I"
+  use_vllm: true
+  process_num: 5
+  temperature: 0.1
+  max_tokens: 2048
+
+# Output Configuration
+output:
+  results_dir: "./comparison_results"
+  save_individual_results: true
+  save_summary: true
+
+# Execution Configuration
+execution:
+  batch_size: 16
+  eval_batch_size: 32
+  num_workers: 4
+  seed: 42
