@@ -134,7 +134,7 @@ If you use this framework in your research, please cite:
 ```bibtex
 @software{llm_benchmark_eval,
   title = {LLM Benchmark Evaluation Framework},
-  author = {Contributors},
+  author = {Xiang Liu},
   year = {2025},
   url = {https://github.com/Dominic789654/llm-benchmark-eval}
 }
