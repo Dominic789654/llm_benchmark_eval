@@ -260,7 +260,7 @@ class XVerifyEvaluator(BaseEvaluator):
         # Batch generate
         config = GenerationConfig(
             temperature=self.temperature,
-            max_tokens=512,
+            max_tokens=50,
             n=1
         )
         
