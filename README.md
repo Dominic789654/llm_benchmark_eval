@@ -40,8 +40,8 @@ llm_benchmark_eval/
 
 ```bash
 # Clone and setup the framework
-git clone <repository>
-cd llm_benchmark_eval
+git clone https://github.com/Dominic789654/llm-benchmark-eval.git
+cd llm-benchmark-eval
 
 # Run setup script
 ./setup.sh
@@ -136,7 +136,7 @@ If you use this framework in your research, please cite:
   title = {LLM Benchmark Evaluation Framework},
   author = {Contributors},
   year = {2025},
-  url = {https://github.com/YOUR_USERNAME/llm_benchmark_eval}
+  url = {https://github.com/Dominic789654/llm-benchmark-eval}
 }
 ```
 

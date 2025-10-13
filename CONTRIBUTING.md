@@ -34,8 +34,8 @@ To add support for a new dataset:
 #### Development Setup
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/llm_benchmark_eval.git
-cd llm_benchmark_eval
+git clone https://github.com/Dominic789654/llm-benchmark-eval.git
+cd llm-benchmark-eval
 
 # Create virtual environment
 python -m venv venv
