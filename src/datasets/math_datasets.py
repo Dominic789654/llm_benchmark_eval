@@ -134,8 +134,8 @@ class AImeLoader(BaseDatasetLoader):
     def load_split(self, split: str = "test", max_samples: Optional[int] = None) -> List[Dict[str, Any]]:
         """Load AIME dataset split."""
         # AIME has different split names
-        if self.variant == "aime" and split == "test":
-            split = "test2024"  # Default to 2024 test
+        if self.variant == "aime24" and split == "test":
+            split = "test"  # Default to 2024 test
         
         file_path = f"{self.dataset_path}/{split}.jsonl"
         raw_samples = self.load_jsonl(file_path, max_samples)
@@ -160,7 +160,7 @@ class AImeLoader(BaseDatasetLoader):
     
     def get_available_splits(self) -> List[str]:
         """Get available splits for AIME datasets."""
-        if self.variant == "aime":
-            return ["test2024", "test2025-I", "test2025-II"]
+        if self.variant == "aime24":
+            return ["test"]
         else:  # aime25
             return ["test"]
